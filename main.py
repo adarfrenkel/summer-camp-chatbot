@@ -13,7 +13,7 @@ if __name__ == '__main__':
     response = ""
     doneApplication = False
     st.title("☀️🏕️  GenAi Chatbot Assistant  🛶🏖")
-
+    st.write("I am happy to assist in the enrollment process or provide you with helpful information about GenAi summer camp")
     if "messages" not in st.session_state:
         st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
 
@@ -33,9 +33,6 @@ if __name__ == '__main__':
         if intent == "ASK":
             response = QuestionPrompt.complete(prompt)
         elif intent == "ENROLL":
-            enrollPrompt = "Please provide the following information: your full name, phone number, email, and your kid age."
-            st.session_state.messages.append({"role": "assistant", "content": enrollPrompt})
-            st.chat_message("assistant").write(enrollPrompt)
             response = ApplicationPrompt.complete(prompt)
 
         st.session_state.messages.append({"role": "assistant", "content": response})

@@ -6,6 +6,7 @@ import openai
 
 openai.api_key = os.environ['OPENAI_API_KEY']
 
+enrollPrompt = "Please provide: Your full name, your phone number, your email, and your kid age."
 
 def getPrompt():
     f = open("prompts/application_prompt.txt")
@@ -23,8 +24,9 @@ def format_properties_as_string(properties_dict):
 
     formatted_string = ""
     for prop_name, value in properties_dict.items():
+        if prop_name not in property_titles: continue
         title = property_titles.get(prop_name, prop_name)  # Use original name if not in dictionary
-        formatted_string += f'{title}: {value}\n'
+        formatted_string += f'{title}: {value}\n\n'
 
     return formatted_string
 
@@ -76,9 +78,11 @@ def complete(input_data: str):
     responseData = extract_properties(response)
 
     if responseData['allDataExist'] == True:
-        response = responseData['response'] + "\n" + format_properties_as_string(responseData)
+        response = f"{responseData['response']}\n\n{format_properties_as_string(responseData)}"
     else:
         response = responseData['response']
+
+        response = f"{'' if response is None else response + ', '}\n\n{enrollPrompt}"
 
     return response
 
@@ -86,7 +90,7 @@ def complete(input_data: str):
 if __name__ == '__main__':
     input_data = ""
     print("Welcome to GenAi Application assistant (type exit to stop)")
-    print("Please provide the following information: your full name, phone number, email, and kid age.")
+    print(enrollPrompt)
     while input_data != "exit":
         input_data = input()
         if input_data.lower() == "exit":

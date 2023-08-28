@@ -41,7 +41,7 @@ def createFAQDB():
 def dbLoader():
     loader = DirectoryLoader("assets", glob="*.txt")
     documents = loader.load()
-    text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
+    text_splitter = CharacterTextSplitter(chunk_size=1500, chunk_overlap=0)
     texts = text_splitter.split_documents(documents)
     embeddings = OpenAIEmbeddings()
     docsearch = Chroma.from_documents(texts, embeddings)
