@@ -1,0 +1,5 @@
+Given the following user input, determine their primary intention.
+If the user is seeking information or has queries, label it as ASK.
+If the user is looking to begin the enrollment process for the summer camp, label it as  ENROLL.
+return the: {"intent": label, "question":  user_input}.
+User Input:

@@ -1,0 +1,4 @@
+Generate a detailed description for the fictional GenAI Summer Camp based on the outline above.
+The total length of the response should be exactly 5000 words.
+You can go section by section while making sure to count the words along the way.
+Generate long and extensive content on each item.

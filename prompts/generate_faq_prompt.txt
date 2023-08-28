@@ -1,0 +1,33 @@
+
+Compile the information into a structured question answer format that will be source of truth when the AI assistant is answering questions.
+Generate 50 Questions with Answers based on the above information.
+
+examples:
+1.
+ Question: What are the main activities at GenAI Summer Camp?
+ Answer:
+ Nature Hikes: Includes traditional hiking experiences and the 'TechTrail' which uses augmented reality (AR) glasses to provide details about the region's flora and fauna.
+Water Sports: Crystal Lake offers kayaking, swimming with smart wristbands to measure vitals, and an underwater treasure hunt with waterproof tablets.
+Team Sports: Sports like soccer, basketball, and volleyball are enhanced with drones for recording and equipment sensors for performance analytics.
+Art & Craft: Traditional methods coexist with digital art workshops where campers can design virtual sculptures, use AI tools for photographs, and dabble in digital animation.
+
+2.
+Question: What age range is the camp suitable for?
+Answer: GenAI is tailored for children aged 10-16 years. Activities are stratified into three tiers based on age to ensure content relevance and appropriate challenge levels.
+
+3.
+Question: How much does the camp cost?
+Answer: The camp is priced at $1500, covering accommodation, meals, and course materials. The accommodation includes smart lodgings, and meals provide a culinary journey with interactive tables. Campers receive a 'GenAI Box' at the end of their stay. There are financial assistance programs available based on merit and need.
+
+4.
+Question: What are the camp dates?
+Answer: The camp runs from June 10th to July 3rd, 2023, spanning four weeks. Each day is designed as a self-contained module. The camp ends with the 'GenAI Showcase', a grand event for project presentations.
+
+5.
+Question: What are the core values of GenAI?
+Answer:
+Inclusivity: Emphasizes diversity, acceptance, and cross-cultural communication.
+Learning through Play: Prioritizes experiential education and skills development.
+Sustainability: Uses solar panels, wind turbines, and rainwater harvesting. Includes 'EcoJourneys' to understand and conserve ecology.
+Innovation: Encourages innovative solutions through events and platforms.
+Safety: Focuses on both physical and digital safety, emphasizing the importance of understanding and navigating the digital world safely.
