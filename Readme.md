@@ -2,6 +2,8 @@
 
 Welcome to the GenAI Summer Camp Chatbot project! This chatbot is designed to provide information about the fictional GenAI Summer Camp and assist parents in the application process for their kids.
 
+![Example of the chatbot in action](assets/readme_image.jpg)
+
 ## Table of Contents
 
 - [About the Project](#about-the-project)
