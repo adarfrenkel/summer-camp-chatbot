@@ -48,11 +48,29 @@ The project consists of two main tasks:
 ## Open Questions
 
 - How can the process be optimized with more time?
-
-
+With more time, the chatbot process can be optimized in several ways:
+- **Enhanced Data Validation:** Implement robust techniques, especially for the application process, to ensure data integrity and security.
+- **User Experience Enhancement:** Develop a user context system to tailor interactions, such as suggesting activities based on a parent's previous inquiries.
+- **Expand Knowledge Base:** Broaden the chatbot's knowledge with more FAQs and relevant information, enhancing its response accuracy.
+- **Refined Error Handling:** Improve mechanisms to gracefully manage unexpected situations, ensuring coherent and helpful responses.
+- **Prompt Hacking Defense:** Employ commonsense strategies and advanced prompt techniques, like instruction defense and XML tagging, to bolster security against potential hacking attempts.
 
 - What methods would be effective for testing the prompts' performance?
+To ensure the chatbot prompts perform optimally and provide users with accurate and relevant responses, several testing methods can be employed:
+- **Error Rate Monitoring:** Track how often the chatbot provides incorrect or irrelevant answers, which can highlight issues with the prompt's design.
+- **Automated Testing:** Use scripts with predefined inputs to systematically check the chatbot's responses for accuracy and consistency.
+- **Edge Case Testing:** Examine the chatbot's ability to handle uncommon scenarios or inputs, ensuring comprehensive coverage.
+- **Sentiment Analysis:** Analyze user responses to measure their overall satisfaction and detect potential areas of confusion or frustration.
+- **A/B Testing:** Test different versions of a prompt on separate user groups to identify which phrasing or structure yields the best results.
+- **User Feedback:** Collect direct feedback after interactions to understand users' perceptions of the chatbot's clarity, relevance, and helpfulness.
+
 - What potential edge cases are currently not addressed?
+The following are some potential edge cases that have not been addressed:
+- **Contradictory Instructions:** Users might provide conflicting directives in a single input, such as "Tell me about the camp but don't mention the dates."
+- **Multiple Questions in One Input:** The chatbot might get confused if users pose several questions within a single sentence, especially if it's designed to address only one query at a time.
+- **Ambiguous Queries:** Some questions can be open to multiple interpretations, potentially leading the chatbot to respond based on an unintended interpretation.
+- **Incomplete or Fragmented Inputs:** The chatbot might struggle with understanding the context if users provide fragmented sentences or incomplete thoughts.
+- **Uncommon User Inputs:** The chatbot might not recognize or know how to process symbols, emojis, or non-standard characters input by users.
 
 ### Getting Started
 
