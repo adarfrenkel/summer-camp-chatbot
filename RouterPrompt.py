@@ -12,6 +12,29 @@ def getPrompt():
     f.close()
     return prompt
 
+def extract_intent_and_question(json_string):
+    intent = None
+    question = None
+
+    # Attempt to parse JSON and extract values
+    try:
+        data = json.loads(json_string)
+        intent = data.get("intent")
+        question = data.get("question")
+    except json.JSONDecodeError as json_error:
+        print(f"JSON parsing error: {json_error}")
+        try:
+            intent_start = json_string.find('"intent":') + len('"intent":')
+            intent_end = json_string.find('"', intent_start + 1)
+            intent = json_string[intent_start:intent_end]
+
+            question_start = json_string.find('"question":') + len('"question":')
+            question_end = json_string.find('"', question_start + 1)
+            question = json_string[question_start:question_end]
+        except Exception as e:
+            print(f"Error during string manipulation: {e}")
+
+    return intent, question
 
 def complete(input_data: str):
     prompt = getPrompt()
@@ -27,12 +50,8 @@ def complete(input_data: str):
         max_tokens=max_tokens,
         temperature=temperature,
         messages=messages)
-
     response = response.choices[0].message.content
-    responseData = json.loads(response)
-    state = responseData['intent']
-    question = responseData['question']
-    return state, question
+    return extract_intent_and_question(response)
 
 
 

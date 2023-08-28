@@ -2,38 +2,9 @@ import json
 import os
 
 import openai
-from langchain.chat_models import ChatOpenAI
-from langchain.chains import create_extraction_chain
 
 
 openai.api_key = os.environ['OPENAI_API_KEY']
-
-schema = {
-    "properties": {
-        "allDataExist": {"type": "boolean"},
-        "response": {"type": "string"},
-        "parentName": {"type": "string"},
-        "phoneNumber": {"type": "string"},
-        "email": {"type": "string"},
-        "age": {"type": "integer"},
-    },
-    "required": ["parentName", "phoneNumber","age"],
-}
-def completeLangChain(input_data: str):
-    response = chain.run(input_data)
-    print(response)
-    if response is list:
-        response = response[0]
-    responseData = json.loads(response)
-
-    print(responseData)
-    all_data_exist = responseData["allDataExist"]
-    if all_data_exist == "true":
-        return responseData, True
-    else:
-        return responseData, False
-llm = ChatOpenAI(temperature=0.9, model="gpt-4")
-chain = create_extraction_chain(schema, llm)
 
 
 def getPrompt():
@@ -41,6 +12,50 @@ def getPrompt():
     prompt = f.read()
     f.close()
     return prompt
+
+def format_properties_as_string(properties_dict):
+    property_titles = {
+        "parentName": "Your Name",
+        "parentPhoneNumber": "Your Phone Number",
+        "parentEmail": "Parent Email",
+        "childAge": "The Child Age"
+    }
+
+    formatted_string = ""
+    for prop_name, value in properties_dict.items():
+        title = property_titles.get(prop_name, prop_name)  # Use original name if not in dictionary
+        formatted_string += f'{title}: {value}\n'
+
+    return formatted_string
+
+def extract_properties(json_string):
+    extracted_data = {
+        "allDataExist": None,
+        "response": None,
+        "parentName": None,
+        "parentPhoneNumber": None,
+        "parentEmail": None,
+        "childAge": None
+    }
+
+    # Attempt to parse JSON and extract values
+    try:
+        data = json.loads(json_string)
+        for key in extracted_data.keys():
+            extracted_data[key] = data.get(key)
+    except json.JSONDecodeError as json_error:
+        print(f"JSON parsing error: {json_error}")
+        try:
+            for key in extracted_data.keys():
+                start_index = json_string.find(f'"{key}":') + len(f'"{key}":')
+                end_index = json_string.find(',', start_index) if ',' in json_string[start_index:] else json_string.find('}', start_index)
+                if start_index != -1 and end_index != -1:
+                    value = json_string[start_index:end_index].strip(' "')
+                    extracted_data[key] = value
+        except Exception as e:
+            print(f"Error during string manipulation: {e}")
+
+    return extracted_data
 
 def complete(input_data: str):
     prompt = getPrompt()
@@ -58,12 +73,13 @@ def complete(input_data: str):
         messages=messages)
 
     response = response.choices[0].message.content
-    responseData = json.loads(response)
+    responseData = extract_properties(response)
 
-    # uncomment to see json result
-    # print(responseData)
+    if responseData['allDataExist'] == True:
+        response = responseData['response'] + "\n" + format_properties_as_string(responseData)
+    else:
+        response = responseData['response']
 
-    response = responseData['response']
     return response
 
 

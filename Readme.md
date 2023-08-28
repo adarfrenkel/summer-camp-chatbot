@@ -74,7 +74,7 @@ To ensure the chatbot prompts perform optimally and provide users with accurate 
 #### 3. What potential edge cases are currently not addressed?
 The following are some potential edge cases that have not been addressed:
 - **Contradictory Instructions:** Users might provide conflicting directives in a single input, such as "Tell me about the camp but don't mention the dates."
-- **Multiple Questions in One Input:** The chatbot might get confused if users pose several questions within a single sentence, especially if it's designed to address only one query at a time.
+- **Multiple Questions in One Input:** The chatbot might get confused if users pose several questions within a single sentence, it's designed to address only one query at a time.
 - **Ambiguous Queries:** Some questions can be open to multiple interpretations, potentially leading the chatbot to respond based on an unintended interpretation.
 - **Incomplete or Fragmented Inputs:** The chatbot might struggle with understanding the context if users provide fragmented sentences or incomplete thoughts.
 - **Uncommon User Inputs:** The chatbot might not recognize or know how to process symbols, emojis, or non-standard characters input by users.
@@ -109,5 +109,5 @@ The following are some potential edge cases that have not been addressed:
 
 1. Run the main script to interact with the chatbot:
    ```sh
-   python main.py
+   streamlit run main.py
    ```
