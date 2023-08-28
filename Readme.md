@@ -45,6 +45,13 @@ The project consists of two main tasks:
 - **assets/**: Generated files containing a summary of the camp and frequently asked questions.
 - **prompts/**: Contains templates or structures for the various prompts used in the chatbot.
 
+The logic was implemented using a combination of the below common libraries in order to present different approaches to address the issue:
+  - [openai](https://github.com/openai/openai-python)
+  - [langchain](https://python.langchain.com/docs/get_started/introduction.html)
+
+**Clarification:** Each **.py** file is equipped with its own run method (using **if __name__ == '__main__'**) to enable direct execution and manual testing of its specific logic by developers. This design choice ensures that developers can easily test individual functionalities in isolation, streamlining the debugging and validation process.
+
+
 ## Open Questions
 
 #### 1. How can the process be optimized with more time?
@@ -78,9 +85,6 @@ The following are some potential edge cases that have not been addressed:
 
 - Ensure you have Python 3.9 installed.
 - Familiarity with the LLM is beneficial.
-- Install the required libraries:
-  - [openai](https://github.com/openai/openai-python)
-  - [langchain](https://python.langchain.com/docs/get_started/introduction.html)
 
 ## Installation
 

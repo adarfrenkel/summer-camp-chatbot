@@ -5,6 +5,7 @@ import RouterPrompt
 if __name__ == '__main__':
     input_data = ""
     response = ""
+    doneApplication = False
     print("Welcome to GenAi assistant (type exit to stop)")
     while input_data != "exit":
         print("How can I help?")
