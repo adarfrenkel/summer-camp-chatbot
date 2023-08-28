@@ -5,27 +5,21 @@ Welcome to the GenAI Summer Camp Chatbot project! This chatbot is designed to pr
 ## Table of Contents
 
 - [About the Project](#about-the-project)
-- [Directory Structure](#directory-structure)
+- [Directory Structure and Explanation](#directory-structure-and-explanation)
+- [Open Questions](#open-questions)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [Usage](#usage)
-- [Open Questions](#open-questions)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+  - [Run](#run)
 
 ## About the Project
 
-The GenAI Summer Camp Chatbot is built using the LLM (Language Learning Model). The project consists of two main tasks:
-
+The GenAI Summer Camp Chatbot is built using the LLM (Language Learning Model). 
+The project consists of two main tasks:
 1. **GenAI Summer Camp Information**: This includes details about the camp's offerings, values, policies, location, dates, pricing, and age range.
-2. **Assistant Creation**: This involves developing specific prompts to guide the user interaction:
-   - **Router Prompt**: Determines if the parent wants to ask a question about the camp or sign their kid up.
-   - **Question Prompt**: Handles questions from parents and provides answers based on the camp information.
-   - **Application Prompt**: Manages the application process, collecting necessary details and validating the kid's age.
+2. **Assistant Creation**: This involves developing specific prompts to guide the user interaction.
 
-## Directory Structure
+## Directory Structure and Explanation
 
 ```
 .
@@ -44,64 +38,54 @@ The GenAI Summer Camp Chatbot is built using the LLM (Language Learning Model). 
     └── generate_summary_description_prompt.txt
 ```
 
-## Getting Started
+- **main.py**: The primary entry point. Orchestrates the flow of the chatbot, calling functions from other Python files.
+- **RouterPrompt.py**: Contains logic for the Router Prompt, determining if the parent wants to ask a question or sign their kid up.
+- **QuestionPrompt.py**: Handles questions from parents using information from the assets files and provides answers.
+- **ApplicationPrompt.py**: Manages the application process, collecting details, and validating the kid's age.
+- **assets/**: Generated files containing a summary of the camp and frequently asked questions.
+- **prompts/**: Contains templates or structures for the various prompts used in the chatbot.
 
-### Prerequisites
+## Open Questions
 
-- Ensure you have Python 3.x installed.
+- How can the process be optimized with more time?
+
+
+
+- What methods would be effective for testing the prompts' performance?
+- What potential edge cases are currently not addressed?
+
+### Getting Started
+
+## Prerequisites
+
+- Ensure you have Python 3.9 installed.
 - Familiarity with the LLM is beneficial.
 - Install the required libraries:
   - [openai](https://github.com/openai/openai-python)
   - [langchain](https://python.langchain.com/docs/get_started/introduction.html)
 
-### Installation
+## Installation
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-repo-link/genai-summer-camp-chatbot.git
+   git clone https://github.com/adarfrenkel/summer-camp-chatbot
    ```
 2. Navigate to the project directory:
    ```sh
-   cd genai-summer-camp-chatbot
+   cd summer-camp-chatbot
    ```
 3. Install the required packages:
    ```sh
    pip install -r requirements.txt
    ```
+4. Set your OPENAI_API_KEY:
+   ```sh
+   export OPENAI_API_KEY = <YOUR OPENAI API KEY>
+   ```
 
-## Usage
+## Run
 
 1. Run the main script to interact with the chatbot:
    ```sh
    python main.py
    ```
-
-## Open Questions
-
-- How can the process be optimized with more time?
-- What methods would be effective for testing the prompts' performance?
-- What potential edge cases are currently not addressed?
-
-## Contributing
-
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-## Contact
-
-Your Name - [adar.frenkel@gmail.com](mailto:adar.frenkel@gmail.com)
-
-Project Link: [https://github.com/your-username/genai-summer-camp-chatbot](https://github.com/your-username/genai-summer-camp-chatbot)
-
----
-
-Let me know if this updated version meets your requirements or if you'd like any further modifications!

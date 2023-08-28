@@ -3,9 +3,7 @@ import os
 
 import openai
 
-OPENAI_API_KEY = "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"
-os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
-openai.api_key = OPENAI_API_KEY
+openai.api_key = os.environ['OPENAI_API_KEY']
 
 
 def getPrompt():
