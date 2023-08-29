@@ -104,7 +104,7 @@ The following are some potential edge cases that have not been addressed:
    ```
 4. Set your OPENAI_API_KEY:
    ```sh
-   export OPENAI_API_KEY = <YOUR OPENAI API KEY>
+   export OPENAI_API_KEY=<YOUR OPENAI API KEY>
    ```
 
 ## Run
